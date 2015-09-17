@@ -1,0 +1,87 @@
+
+0. How many different colors does each format support?
+
+    - JPEG, PNG, and BMP support 24 bits per pixel. 8 each for red, green, and blue. This gives it 16 million 
+      color possibilites.
+
+    - GIF supports 256 colors. 
+     
+1. Which of these formats supports animation?
+
+    - GIF supports animation.
+
+2. What’s the difference between lossy and lossless compression?
+
+    - Lossless doesn't lose any quality lossy does.
+
+3. Which of these formats is lossy-compressed?
+
+    - BMP
+
+4. What happens, technically speaking, when a file is deleted on a FAT file system?
+    
+    - It is not referenced in the system. However the data is still there. It is kind of like a pointer and 
+    its pointee. The pointer gets deleted but the pointee is still there.
+     
+5. What can someone like you do to ensure (with high probability) that files you delete cannot be recovered?
+
+    - Use sanitazation software or overwrite every block with NULL characters.
+    
+6. What’s stdint.h?
+
+    - It's a header file that declares sets of integers and how many bytes they take up.
+    
+7. What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+
+    - You always know how many bytes you're using.
+
+
+8.  How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively? 
+    (Assume a 32-bit architecture like the CS50 Appliance.)
+    
+    BYTE = 8
+    DWORD = 32
+    LONG = 32
+    WORD = 16
+    
+9.  What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? 
+    (Leading bytes used to identify file formats (with high probability) are generally called "magic numbers.)"
+    
+    ASCII = BM, decimal = 66 and 67, hexadecimal = 42 and 4D
+
+10. What’s the difference between bfSize and biSize?
+
+    - bfSize is part of BITMAPFILEHEADER struct which deals with the type, size, and layout of the file.
+    biSize is part of BITMAPINFOHEADER struct which deals with the color and dimensions of the file.
+
+11. What does it mean if biHeight is negative?
+
+    - The infile is an unsupported file format.
+
+12. What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+
+    - biBitCount
+
+13. Why might fopen return NULL in copy.c:37?
+
+    - It's not the correct file format.
+
+14. Why is the third argument to fread always 1 in our code?
+
+    - Because it is the one and only element.
+    
+15. What value does copy.c:70 assign padding if bi.biWidth is 3?
+
+    - It needs to be a multiple of 4.
+
+16. What does fseek do?
+
+    - It searches for padding.
+    
+17. What is SEEK_CUR?
+
+    - The current position of the file pointer.
+
+18. Whodunit?
+
+    - Milo Banana dun it.

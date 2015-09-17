@@ -1,0 +1,43 @@
+    
+    int large_padding = 0;
+    
+    if ((bi.biWidth + 4)% 4 == 0)
+    {
+    large_padding = 0 * sizeof(RGBTRIPLE);
+    }
+    else if ((bi.biWidth + 4) % 4 == 1)
+    {
+    large_padding = 3 * sizeof(RGBTRIPLE);
+    }
+    else if ((bi.biWidth + 4) % 4 == 2)
+    {
+    large_padding = 2 * sizeof(RGBTRIPLE);
+    }
+    else if ((bi.biWidth + 4) % 4 == 3)
+    {
+    large_padding = 1 * sizeof(RGBTRIPLE);
+    
+    
+    
+        int small_padding = 0;
+    if ((bi.biWidth + 4) % 4 == 0)
+    {
+    small_padding = 0 * sizeof(RGBTRIPLE);
+    }
+    else if ((bi.biWidth + 4) % 4 == 1)
+    {
+    small_padding = 3 * sizeof(RGBTRIPLE);
+    }
+    else if ((bi.biWidth + 4) % 4 == 2)
+    {
+    small_padding = 2 * sizeof(RGBTRIPLE);
+    }
+    else if ((bi.biWidth + 4) % 4 == 3)
+    {
+    small_padding = 1 * sizeof(RGBTRIPLE);
+    }
+    
+    
+    
+    
+    
