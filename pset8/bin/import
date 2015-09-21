@@ -1,6 +1,21 @@
 #!/usr/bin/env php
 <?php
+    
+    if ($argc != 2){
+        echo "Invalid input\n";
+        return 1;
+    }
+    $ustxt = $argv[1];
+    
+    $ustxt = fopen($ustxt, 'r');
+    
+    if (!$ustxt){
+      echo "Could not open file";
+      }
 
-    // TODO
-
+    $uscsv = fgetcsv($ustxt, 0, "\t");
+    
+    for ($i = 0; $i < 5; $i++){
+    echo "$uscsv[$i]\n";
+    }
 ?>
