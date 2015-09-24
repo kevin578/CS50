@@ -5,8 +5,12 @@
     // numerically indexed array of places
     $places = [];
 
-    // TODO: search database for places matching $_GET["geo"]
-
+    $places = query("SELECT * FROM places WHERE postal_code = ?",$_GET["geo"]);
+    
+    
+    
+    
+        
     // output places as JSON (pretty-printed for debugging convenience)
     header("Content-type: application/json");
     print(json_encode($places, JSON_PRETTY_PRINT));
