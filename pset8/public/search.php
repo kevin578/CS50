@@ -9,6 +9,7 @@
     $get = preg_replace('~[+,US]~', ' ',$_GET["geo"]);
     $get = explode (' ', $get);
     for ($i = 0; $i < count($get); $i++){
+        $get[$i] = strtoupper($get[$i]);
         if (strlen($get[$i]) == 2){
         
         $get[$i] = state_abrv($get[$i]);
