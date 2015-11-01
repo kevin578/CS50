@@ -72,8 +72,49 @@ $(function() {
  */
 function addMarker(place)
 {
-    // TODO
-}
+
+    //set myLatLNg to corresponding place
+    var myLatlng = new google.maps.LatLng(place.latitude, place.longitude);
+
+    //place marker on correct spot with title
+    var marker = new google.maps.Marker({
+    position: myLatlng,
+    title:"News From "+place.place_name
+});
+    
+    //put marker down
+    marker.setMap(map);
+   
+    //get list of articles
+    var contentString;
+    var parameters = { geo: place.postal_code };
+    $.getJSON("articles.php", parameters)
+    
+    //Sucess
+    //print out list of articles into HTML
+    .done(function(data, textStatus, jqXHR){   
+    contentString = "<ul>";
+    for (var i = 0; i < data.length; i++){
+        contentString += "<li><a target='_NEW' href='" + data[i].link + "'>" + data[i].title + "</a></li>";
+        }
+    contentString += "</ul>"
+      
+    //set up info window
+    var infowindow = new google.maps.InfoWindow({
+    content: contentString
+    })
+
+    //show info windown on click
+    marker.addListener('click', function() {
+    infowindow.open(map, marker);
+     });
+  })
+  //Fail
+  .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(errorThrown.toString());
+    });
+
+  }
 
 /**
  * Configures application.
