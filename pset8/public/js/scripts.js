@@ -198,7 +198,11 @@ function hideInfo()
  */
 function removeMarkers()
 {
-    // TODO
+    for (var i = 0; i < markers.length; i++){
+    markers[i].setMap(null);
+    markers[i] = null;
+    }
+    markers.length = 0;
 }
 
 /**
