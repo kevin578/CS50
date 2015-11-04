@@ -77,13 +77,15 @@ function addMarker(place)
     var myLatlng = new google.maps.LatLng(place.latitude, place.longitude);
 
     //place marker on correct spot with title
-    var marker = new google.maps.Marker({
+    var image = "http://clubnook.com/forum/images/forumicons/ico_news.png";
+    var newspaper = new google.maps.Marker({
     position: myLatlng,
-    title:"News From "+place.place_name
+    title:"News From "+place.place_name,
+    icon: image
 });
     
     //put marker down
-    marker.setMap(map);
+    newspaper.setMap(map);
    
     //get list of articles
     var contentString;
@@ -105,8 +107,8 @@ function addMarker(place)
     })
 
     //show info windown on click
-    marker.addListener('click', function() {
-    infowindow.open(map, marker);
+    newspaper.addListener('click', function() {
+    infowindow.open(map, newspaper);
      });
   })
   //Fail
